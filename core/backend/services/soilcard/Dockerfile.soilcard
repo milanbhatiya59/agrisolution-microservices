@@ -9,11 +9,11 @@ COPY ../core/backend/middlewares ./middlewares
 COPY ../core/backend/models ./models
 COPY ../core/backend/utils ./utils
 COPY ../core/backend/services/gemini.service.js ./services/
-COPY ../core/backend/services/community ./services/community
+COPY ../core/backend/services/soilcard ./services/soilcard
 
 RUN npm install
-RUN ls -R
+
 
 EXPOSE 80
 
-CMD ["node", "./services/community/index.js"]
+CMD ["node", "./services/soilcard/index.js"]

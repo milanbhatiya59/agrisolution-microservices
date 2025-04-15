@@ -22,7 +22,7 @@ app.use(express.static('public'));
 app.use(cookieParser());
 
 // 📁 Routes import
-import soilcardRouter from './routes/soilcard.routes.js';
+import soilcardRouter from './soilcard.routes.js';
 
 // 🔗 Routes declaration
 app.use('/api/v1/soilcard', soilcardRouter);

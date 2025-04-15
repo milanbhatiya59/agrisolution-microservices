@@ -22,7 +22,7 @@ app.use(express.static('public'));
 app.use(cookieParser());
 
 // 📁 Routes import
-import warningRouter from './routes/warning.routes.js';
+import warningRouter from './warning.routes.js';
 
 // 🔗 Routes declaration
 app.use('/api/v1/warning', warningRouter);

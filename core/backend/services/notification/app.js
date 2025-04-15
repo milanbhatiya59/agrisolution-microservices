@@ -22,7 +22,7 @@ app.use(express.static('public'));
 app.use(cookieParser());
 
 // 📁 Routes import
-import notificationRouter from './routes/notification.routes.js';
+import notificationRouter from './notification.routes.js';
 
 // 🔗 Routes declaration
 app.use('/api/v1/notification', notificationRouter);
