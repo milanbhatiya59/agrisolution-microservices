@@ -1,0 +1,43 @@
+version: '3.8'
+
+services:
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - frontend
+      - community
+    restart: always
+    networks:
+      - agrisolution-network
+
+  frontend:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.frontend
+    ports:
+      - "3000:80"
+    container_name: agrisolution-frontend
+    env_file:
+      - ./core/frontend/.env
+    networks:
+      - agrisolution-network
+
+  community:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.community
+    ports:
+      - "3001:80"
+    container_name: agrisolution-community
+    env_file:
+      - ./core/backend/.env
+    networks:
+      - agrisolution-network
+
+networks:
+  agrisolution-network:
+    driver: bridge
