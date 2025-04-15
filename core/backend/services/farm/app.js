@@ -22,7 +22,7 @@ app.use(express.static('public'));
 app.use(cookieParser());
 
 // 📁 Routes import
-import farmRouter from './routes/farm.routes.js';
+import farmRouter from './farm.routes.js';
 
 // 🔗 Routes declaration
 app.use('/api/v1/farm', farmRouter);

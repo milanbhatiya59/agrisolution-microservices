@@ -22,7 +22,7 @@ app.use(express.static('public'));
 app.use(cookieParser());
 
 // 📁 Routes import
-import pestAndDiseaseDetectionRouter from './routes/pestanddiseasedetection.routes.js'
+import pestAndDiseaseDetectionRouter from './pestanddiseasedetection.routes.js'
 
 // 🔗 Routes declaration
 app.use('/api/v1/pestanddiseasedetection', pestAndDiseaseDetectionRouter);
