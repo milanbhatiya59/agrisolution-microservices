@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: webhook
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: webhook
+  template:
+    metadata:
+      labels:
+        app: webhook
+    spec:
+      containers:
+        - name: webhook
+          image: milanbhatiya59/agrisolution-webhook:latest
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: backend-env
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: webhook
+spec:
+  selector:
+    app: webhook
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP

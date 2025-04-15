@@ -10,6 +10,13 @@ services:
     depends_on:
       - frontend
       - community
+      - farm
+      - notification
+      - pestanddiseasedetection
+      - soilcard
+      - user
+      - warning
+      - webhook
     restart: always
     networks:
       - agrisolution-network

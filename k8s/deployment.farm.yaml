@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: farm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: farm
+  template:
+    metadata:
+      labels:
+        app: farm
+    spec:
+      containers:
+        - name: farm
+          image: milanbhatiya59/agrisolution-farm:latest
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: backend-env
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: farm
+spec:
+  selector:
+    app: farm
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP

@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: community
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: community
+  template:
+    metadata:
+      labels:
+        app: community
+    spec:
+      containers:
+        - name: community
+          image: milanbhatiya59/agrisolution-community:latest
+          ports:
+            - containerPort: 80
+          envFrom:
+            - configMapRef:
+                name: backend-env
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: community
+spec:
+  selector:
+    app: community
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 80
+  type: ClusterIP
