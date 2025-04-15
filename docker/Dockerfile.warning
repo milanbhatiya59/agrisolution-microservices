@@ -8,6 +8,7 @@ COPY ../core/backend/db ./db
 COPY ../core/backend/middlewares ./middlewares
 COPY ../core/backend/models ./models
 COPY ../core/backend/utils ./utils
+COPY ../core/backend/prompts ./prompts
 COPY ../core/backend/services/gemini.service.js ./services/
 COPY ../core/backend/services/warning ./services/warning
 

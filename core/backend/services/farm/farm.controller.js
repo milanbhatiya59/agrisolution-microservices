@@ -1,4 +1,4 @@
-import { asyncHandler } from '../utils/asyncHandler.js';
+import { asyncHandler } from '../../utils/asyncHandler.js';
 import { Farm } from '../../models/farm.model.js';
 import { User } from '../../models/user.model.js';
 import { Notification } from '../../models/notification.model.js';

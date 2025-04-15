@@ -8,12 +8,13 @@ COPY ../core/backend/db ./db
 COPY ../core/backend/middlewares ./middlewares
 COPY ../core/backend/models ./models
 COPY ../core/backend/utils ./utils
+COPY ../core/backend/prompts ./prompts
 COPY ../core/backend/services/gemini.service.js ./services/
-COPY ../core/backend/services/webhook ./services/webhook
+COPY ../core/backend/services/pestanddiseasedetection ./services/pestanddiseasedetection
 
 RUN npm install
 
 
 EXPOSE 80
 
-CMD ["node", "./services/webhook/index.js"]
+CMD ["node", "./services/pestanddiseasedetection/index.js"]

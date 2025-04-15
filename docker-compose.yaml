@@ -37,6 +37,90 @@ services:
       - ./core/backend/.env
     networks:
       - agrisolution-network
+  
+  farm:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.farm
+    ports:
+      - "3002:80"
+    container_name: agrisolution-farm
+    env_file:
+      - ./core/backend/.env
+    networks:
+      - agrisolution-network
+
+  notification:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.notification
+    ports:
+      - "3003:80"
+    container_name: agrisolution-notification
+    env_file:
+      - ./core/backend/.env
+    networks:
+      - agrisolution-network
+
+  pestanddiseasedetection:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.pestanddiseasedetection
+    ports:
+      - "3004:80"
+    container_name: agrisolution-pestanddiseasedetection
+    env_file:
+      - ./core/backend/.env
+    networks:
+      - agrisolution-network
+
+  soilcard:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.soilcard
+    ports:
+      - "3005:80"
+    container_name: agrisolution-soilcard
+    env_file:
+      - ./core/backend/.env
+    networks:
+      - agrisolution-network
+  
+  user:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.user
+    ports:
+      - "3006:80"
+    container_name: agrisolution-user
+    env_file:
+      - ./core/backend/.env
+    networks:
+      - agrisolution-network
+
+  warning:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.warning
+    ports:
+      - "3007:80"
+    container_name: agrisolution-warning
+    env_file:
+      - ./core/backend/.env
+    networks:
+      - agrisolution-network
+
+  webhook:
+    build:
+      context: .
+      dockerfile: ./docker/Dockerfile.webhook
+    ports:
+      - "3008:80"
+    container_name: agrisolution-webhook
+    env_file:
+      - ./core/backend/.env
+    networks:
+      - agrisolution-network
 
 networks:
   agrisolution-network:
