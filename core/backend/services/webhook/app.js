@@ -22,7 +22,7 @@ app.use(express.static('public'));
 app.use(cookieParser());
 
 // 📁 Routes import
-import webhookRouter from './routes/webhook.routes.js';
+import webhookRouter from './webhook.routes.js';
 
 // 🔗 Routes declaration
 app.use('/api/v1/webhooks', webhookRouter);
